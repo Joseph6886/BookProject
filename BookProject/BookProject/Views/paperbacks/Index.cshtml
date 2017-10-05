@@ -1,0 +1,58 @@
+﻿@model IEnumerable<BookProject.Models.paperback>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Search</h2>
+
+
+    @using (Html.BeginForm("index", "paperbacks", FormMethod.Get))
+    {
+    <p>
+
+        @Html.ActionLink("Create New", "Create")<br/>
+     Title: @Html.TextBox("searchstring")
+         </p>
+        }
+   
+    @*<img src="~/Controllers/Images/book.jpg"*@
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ISBNNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBNNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>

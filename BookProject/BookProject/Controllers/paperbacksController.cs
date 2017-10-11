@@ -54,11 +54,22 @@ namespace BookProject.Controllers
             return View(db.Paperback.ToList());
         }
 
-        public ActionResult Request()
+        //public ActionResult Request()
+        //{
+        //    return View();
+        //}
+        public ActionResult Request(string searchstring)
         {
-            return View();
-        }
+            var Paperbacks = from b in db.Paperback
+                             select b;
 
+            if (!String.IsNullOrEmpty(searchstring))
+            {
+                Paperbacks = Paperbacks.Where(s => s.Title.Contains(searchstring));
+            }
+            return View(Paperbacks);
+
+        }
         public ActionResult Thanks()
         {
             return View(db.Paperback.ToList());
@@ -73,7 +84,19 @@ namespace BookProject.Controllers
         {
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Donate([Bind(Include = "ID,ISBNNumber,Title,Author")] paperback paperback)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Paperback.Add(paperback);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
+            return View(paperback);
+        }
         // GET: paperbacks/Details/5
         public ActionResult Details(int? id)
         {

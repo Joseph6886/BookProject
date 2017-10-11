@@ -1,5 +1,5 @@
 ﻿
-@{
+@*@{
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model BookProject.Models.paperback
@@ -55,6 +55,71 @@
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+}*@
+@model IEnumerable<BookProject.Models.paperback>
+
+@{
+    ViewBag.Title = "Request";
 }
 
+<h2>Request</h2>
+
+
+@using (Html.BeginForm("index", "paperbacks", FormMethod.Get))
+{
+    <p>
+
+        @Html.ActionLink("Create New", "Create", null, new { style = "color:black" })<br />
+
+
+        Title: @Html.TextBox("searchstring")
+
+    </p>
+}
+
+@*<img src="~/Controllers/Images/book.jpg"*@
+
+
+
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ISBNNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ISBNNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Author)
+            </td>
+            <td>
+
+
+
+
+
+                @Html.ActionLink("Edit", "Edit", null, new { id = item.ID }, new { style = "color:black" }) |
+                @Html.ActionLink("Details", "Details", null, new { id = item.ID }, new { style = "color:black" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { style = "color:black" })
+            </td>
+        </tr>
+    }
+
+</table>*@
 

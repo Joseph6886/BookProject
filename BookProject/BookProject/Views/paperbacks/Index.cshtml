@@ -11,8 +11,11 @@
     {
     <p>
 
-        @Html.ActionLink("Create New", "Create")<br/>
+        @Html.ActionLink("Create New", "Create", null, new { style = "color:black" })<br/>
+
+
      Title: @Html.TextBox("searchstring")
+        
          </p>
         }
    
@@ -48,9 +51,14 @@
                 @Html.DisplayFor(modelItem => item.Author)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+
+               
+
+                
+               
+                @Html.ActionLink("Edit", "Edit",null, new { id = item.ID }, new{ style="color:black" }) |
+                @Html.ActionLink("Details", "Details",null, new { id = item.ID }, new { style = "color:black" }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { style = "color:black" })
             </td>
         </tr>
     }

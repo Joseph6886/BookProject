@@ -14,7 +14,8 @@ namespace BookProject.Controllers
     {
         private paperbackDBContext db = new paperbackDBContext();
 
-        // GET: paperbacks
+        //GET: paperbacks
+
         public ActionResult Index(string searchstring)
         {
             var Paperbacks = from b in db.Paperback
@@ -27,8 +28,20 @@ namespace BookProject.Controllers
             return View(Paperbacks);
 
         }
+        //public ActionResult Author(String searchstring)
+        //{
 
-         
+        //    var Author = from m in db.Paperback
+        //                  select m;
+
+        //    if (!String.IsNullOrEmpty(searchstring))
+        //    {
+        //        Author = Author.Where(s => s.Author.Contains(searchstring));
+        //    }
+        //    return View(Author);
+        //}
+
+
 
         public ActionResult Home()
         {
@@ -43,7 +56,7 @@ namespace BookProject.Controllers
 
         public ActionResult Request()
         {
-            return View(db.Paperback.ToList());
+            return View();
         }
 
         public ActionResult Thanks()
@@ -58,7 +71,7 @@ namespace BookProject.Controllers
 
         public ActionResult Donate()
         {
-            return View(db.Paperback.ToList());
+            return View();
         }
 
         // GET: paperbacks/Details/5

@@ -65,17 +65,22 @@
 <h2>Request</h2>
 
 
+
+
 @using (Html.BeginForm("index", "paperbacks", FormMethod.Get))
 {
     <p>
 
-        @Html.ActionLink("Create New", "Create", null, new { style = "color:black" })<br />
+        @*@Html.ActionLink("Create New", "Create", null, new { style = "color:black" })<br />*@
 
 
         Title: @Html.TextBox("searchstring")
 
     </p>
+
+ 
 }
+
 
 @*<img src="~/Controllers/Images/book.jpg"*@
 

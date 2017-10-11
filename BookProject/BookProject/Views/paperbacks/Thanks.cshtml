@@ -1,7 +1,32 @@
 ﻿
+@*@{
+    ViewBag.Title = "Thanks";
+}*@
+
+<h2>Thanks= Brytte Book Exchange</h2>
+@model IEnumerable<BookProject.Models.paperback>
+
 @{
     ViewBag.Title = "Thanks";
 }
 
-<h2>Thanks= Brytte Book Exchange</h2>
+<h2>Request</h2>
+
+
+
+
+@using (Html.BeginForm("index", "paperbacks", FormMethod.Get))
+{
+    <p>
+
+        @Html.ActionLink("Create New", "Create", null, new { style = "color:black" })<br />
+
+
+        Title: @Html.TextBox("searchstring")
+
+    </p>
+
+
+}
+
 

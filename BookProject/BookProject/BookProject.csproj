@@ -296,6 +296,7 @@
     <Content Include="Views\paperbacks\Donate.cshtml" />
     <Content Include="Views\paperbacks\Thanks.cshtml" />
     <Content Include="Views\paperbacks\Confirmation.cshtml" />
+    <Content Include="Views\paperbacks\Reserve.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

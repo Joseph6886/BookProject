@@ -56,9 +56,11 @@
 
                 
                
-                @Html.ActionLink("Edit", "Edit",null, new { id = item.ID }, new{ style="color:black" }) |
+                @Html.ActionLink("Reserve", "Reserve",null, new { id = item.ID }, new{ style="color:black" }) |
                 @Html.ActionLink("Details", "Details",null, new { id = item.ID }, new { style = "color:black" }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { style = "color:black" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { style = "color:black" }) |
+                @Html.ActionLink("Edit", "Edit", null, new { id = item.ID }, new { style = "color:black" })
+                
             </td>
         </tr>
     }

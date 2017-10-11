@@ -43,9 +43,9 @@ namespace BookProject.Controllers
 
 
 
-        public ActionResult Home()
+        public ActionResult Reserve()
         {
-            return View(db.Paperback.ToList());
+            return View();
         }
 
 
@@ -70,9 +70,20 @@ namespace BookProject.Controllers
             return View(Paperbacks);
 
         }
-        public ActionResult Thanks()
+        //public ActionResult Thanks()
+        //{
+        //    return View(db.Paperback.ToList());
+        //}
+        public ActionResult Thanks(string searchstring)
         {
-            return View(db.Paperback.ToList());
+            var Paperbacks = from b in db.Paperback
+                             select b;
+
+            if (!String.IsNullOrEmpty(searchstring))
+            {
+                Paperbacks = Paperbacks.Where(s => s.Title.Contains(searchstring));
+            }
+            return View(Paperbacks);
         }
 
         public ActionResult Confirmation()
